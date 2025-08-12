@@ -19,10 +19,16 @@ A scalable Node.js Express backend API for e-commerce applications, built with T
 src/
 ├── config/          # Configuration files
 │   └── database.ts  # Database connection
+├── controllers/     # Route controllers
+│   └── homepageController.ts
 ├── middleware/      # Custom middleware
 │   └── errorHandler.ts
 ├── routes/          # API routes
-│   └── health.ts    # Health check endpoint
+│   ├── health.ts    # Health check endpoint
+│   └── homepage.ts  # Homepage data endpoints
+├── types/           # TypeScript type definitions
+│   ├── environment.d.ts
+│   └── homepage.ts
 ├── utils/           # Utility functions
 │   └── logger.ts    # Logging utility
 └── server.ts        # Main application file
@@ -76,6 +82,11 @@ src/
 
 ### Health Check
 - `GET /api/health` - Check API status
+
+### Homepage Data
+- `GET /api/homepage` - Get all homepage data (categories + products)
+- `GET /api/homepage/categories` - Get only categories
+- `GET /api/homepage/products` - Get only products
 
 ### Root
 - `GET /` - API information

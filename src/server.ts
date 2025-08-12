@@ -9,12 +9,13 @@ import dotenv from 'dotenv';
 import connectDB from '@/config/database';
 import errorHandler from '@/middleware/errorHandler';
 import healthRoutes from '@/routes/health';
+import homepageRoutes from '@/routes/homepage';
 import logger from '@/utils/logger';
 
 // Load environment variables
 dotenv.config();
 
-const app = express();
+const app: express.Application = express();
 const PORT = process.env['PORT'] || 5000;
 
 // Connect to MongoDB
@@ -51,6 +52,7 @@ app.use(morgan('combined', {
 
 // Routes
 app.use('/api/health', healthRoutes);
+app.use('/api/homepage', homepageRoutes);
 
 // Root route
 app.get('/', (req, res) => {
